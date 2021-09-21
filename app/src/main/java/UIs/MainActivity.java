@@ -1,4 +1,4 @@
-package com.trabalho.trabalho_3;
+package UIs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.trabalho.trabalho_3.R;
+
 public class MainActivity extends AppCompatActivity {
     private Button todosB;
     private Button postsB;
     private Button albumsB;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         todosB = (Button) findViewById(R.id.todosB);
         postsB = (Button) findViewById(R.id.postsB);
         albumsB = (Button) findViewById(R.id.albumsB);
+
 
         todosB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 albumsBActivity();
             }
         });
+
     }
 
     private void albumsBActivity() {
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private void todosBActivity() {
         startActivity(new Intent(MainActivity.this, TodosActivity.class));
     }
+
 
 
 }

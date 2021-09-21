@@ -4,10 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/activity_albums.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/activity_detalhe_todo.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/activity_posts.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/activity_teste_aactivity.xml" value="0.22" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/activity_todos.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/album_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/post_layout.xml" value="0.25" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/Trabalho_3/app/src/main/res/layout/todo_layout.xml" value="0.5" />
       </map>
     </option>
   </component>

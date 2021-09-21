@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trabalho_3">
         <activity
-            android:name=".SplashActivity"
+            android:name="UIs.DetalheTodoActivity"
+            android:exported="true" />
+        <activity
+            android:name="UIs.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,18 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AlbumsActivity"
+            android:name="UIs.AlbumsActivity"
             android:exported="true" />
         <activity
-            android:name=".PostsActivity"
+            android:name="UIs.PostsActivity"
             android:exported="true" />
         <activity
-            android:name=".TodosActivity"
+            android:name="UIs.TodosActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true"/>
-
+            android:name="UIs.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

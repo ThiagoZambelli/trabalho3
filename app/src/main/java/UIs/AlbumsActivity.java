@@ -1,6 +1,8 @@
-package com.trabalho.trabalho_3;
+package UIs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -13,11 +15,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.trabalho.trabalho_3.R;
+import com.trabalho.trabalho_3.ui.Adapters.AlbumAdapter;
+import com.trabalho.trabalho_3.ui.Adapters.PostAdapter;
+import com.trabalho.trabalho_3.ui.Models.Album;
+import com.trabalho.trabalho_3.ui.Models.Post;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AlbumsActivity extends AppCompatActivity implements Response.Listener<JSONArray>, Response.ErrorListener{
+
+    private List<Album> album = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +44,23 @@ public class AlbumsActivity extends AppCompatActivity implements Response.Listen
     }
     @Override
     public void onResponse(JSONArray response) {
-        EditText ed1 = findViewById(R.id.albums1);
+        album.clear();
         try {
-            ed1.setText(response.length()+response.getJSONObject(1).toString());
+            for (int i=0; i< response.length(); i++){
+                album.add(new Album(response.getJSONObject(i)));
+            }
+
+            RecyclerView rv = findViewById(R.id.rvAlbum);
+            AlbumAdapter adapter = new AlbumAdapter(album);
+
+            LinearLayoutManager llm = new LinearLayoutManager(this);
+            LinearLayoutManager llm1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            rv.setLayoutManager(llm);
+            rv.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        EditText ed2 = findViewById(R.id.albums2);
-        try {
-            ed2.setText(response.length()+response.getJSONObject(2).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        EditText ed3 = findViewById(R.id.albums3);
-        try {
-            ed3.setText(response.length()+response.getJSONObject(3).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
 
 
     }

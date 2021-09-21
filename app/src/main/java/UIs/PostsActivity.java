@@ -1,6 +1,8 @@
-package com.trabalho.trabalho_3;
+package UIs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -13,10 +15,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.trabalho.trabalho_3.R;
+import com.trabalho.trabalho_3.ui.Adapters.PostAdapter;
+import com.trabalho.trabalho_3.ui.Adapters.TodoAdapter;
+import com.trabalho.trabalho_3.ui.Models.Post;
+import com.trabalho.trabalho_3.ui.Models.Todo;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PostsActivity extends AppCompatActivity implements Response.Listener<JSONArray>, Response.ErrorListener{
+
+    private List<Post> post = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +44,23 @@ public class PostsActivity extends AppCompatActivity implements Response.Listene
     }
     @Override
     public void onResponse(JSONArray response) {
-        EditText ed1 = findViewById(R.id.posts1);
+        post.clear();
         try {
-            ed1.setText(response.length()+response.getJSONObject(1).toString());
+            for (int i=0; i< response.length(); i++){
+                post.add(new Post(response.getJSONObject(i)));
+            }
+
+            RecyclerView rv = findViewById(R.id.rvPost);
+            PostAdapter adapter = new PostAdapter(post);
+
+            LinearLayoutManager llm = new LinearLayoutManager(this);
+            LinearLayoutManager llm1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            rv.setLayoutManager(llm);
+            rv.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        EditText ed2 = findViewById(R.id.posts2);
-        try {
-            ed2.setText(response.length()+response.getJSONObject(2).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        EditText ed3 = findViewById(R.id.posts3);
-        try {
-            ed3.setText(response.length()+response.getJSONObject(3).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
 
 
     }
@@ -57,4 +69,17 @@ public class PostsActivity extends AppCompatActivity implements Response.Listene
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(this, "Deu Erro:"+error.getMessage(), Toast.LENGTH_LONG).show();
     }
+        /*EditText ed1 = findViewById(R.id.posts1);
+        try {
+            ed1.setText(response.length()+response.getJSONObject(1).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Toast.makeText(this, "Deu Erro:"+error.getMessage(), Toast.LENGTH_LONG).show();*/
+
 }

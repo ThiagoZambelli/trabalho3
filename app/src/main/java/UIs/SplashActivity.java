@@ -1,4 +1,4 @@
-package com.trabalho.trabalho_3;
+package UIs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+
+import com.trabalho.trabalho_3.R;
+import UIs.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
